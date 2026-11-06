@@ -1,221 +1,1029 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vijay Holidays - Tours & Travels</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #fafafa; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 20px; }
-    header { text-align: center; padding: 40px 20px; background: #ffffff; border-bottom: 1px solid #eee; margin-bottom: 30px; }
-    h1 { font-size: 2.5rem; color: #1a1a2e; margin-bottom: 10px; }
-    .subtitle { color: #666; font-size: 1.1rem; }
-    .contact { font-size: 1.2rem; color: #e74c3c; font-weight: bold; margin-top: 10px; }
-    .tagline { font-size: 1.3rem; color: #2c3e50; margin: 20px 0; font-weight: 600; }
-    .intro { font-size: 1.1rem; color: #555; max-width: 800px; margin: 0 auto 30px auto; text-align: center; }
-    .btn-group { text-align: center; margin: 30px 0; }
-    .btn { display: inline-block; padding: 12px 24px; margin: 0 8px; background: #3498db; color: white; text-decoration: none; border-radius: 6px; font-weight: 600; transition: background 0.3s; }
-    .btn:hover { background: #2980b9; }
-    .btn-secondary { background: #95a5a6; }
-    .btn-secondary:hover { background: #7f8c8d; }
-    h2 { font-size: 1.5rem; color: #2c3e50; margin: 40px 0 20px; border-bottom: 2px solid #3498db; padding-bottom: 8px; }
-    h3 { font-size: 1.2rem; color: #34495e; margin: 20px 0 10px; }
-    p { margin-bottom: 15px; }
-    .package { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; border-left: 4px solid #3498db; }
-    .package h4 { margin-bottom: 8px; color: #2c3e50; }
-    .package p { margin: 5px 0; font-size: 0.95rem; }
-    .whatsapp { color: #25d366; font-weight: bold; }
-    footer { text-align: center; padding: 40px 20px; color: #777; border-top: 1px solid #eee; margin-top: 50px; font-size: 0.9rem; }
-    ul { list-style: none; padding: 0; }
-    ul li { margin: 8px 0; }
-    ul li:before { content: "• "; color: #3498db; font-weight: bold; display: inline-block; width: 1em; margin-left: -1em; }
-    @media (max-width: 768px) { .container { padding: 15px; } h1 { font-size: 2rem; } .btn { display: block; margin: 10px 0; } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vijay Holidays | Explore Domestic & International Tours</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0077b6;
+            --secondary: #00b4d8;
+            --accent: #ff7b00;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gradient: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --hover-shadow: 0 20px 40px rgba(0, 119, 182, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--dark);
+            color: #fff;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+        }
+
+        .top-bar-contact a {
+            color: #fff;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .top-bar-contact a:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        /* Exact SVG Recreation of the Logo */
+        .logo-svg-wrapper {
+            width: 60px;
+            height: 60px;
+            flex-shrink: 0;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+        }
+
+        .logo-text-group {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.1;
+        }
+
+        .logo-text-group span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent);
+            display: block;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            -webkit-text-fill-color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--accent) !important;
+            color: white !important;
+            padding: 10px 22px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(255, 123, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 123, 0, 0.4);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 85vh;
+            background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.6)), url('https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 span {
+            color: #ffb703;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 700px;
+            margin-bottom: 30px;
+            font-weight: 300;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 123, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background: #e56d00;
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+        }
+
+        .section-header span {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 90px 5%;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* Tour Cards Grid */
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .tour-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: all 0.4s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .tour-img-wrapper {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .tour-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .tour-card:hover .tour-img-wrapper img {
+            transform: scale(1.1);
+        }
+
+        .tour-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 50px;
+        }
+
+        .tour-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .tour-content h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .tour-meta {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: #64748b;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tour-meta span i {
+            color: var(--secondary);
+            margin-right: 5px;
+        }
+
+        .tour-desc {
+            font-size: 0.92rem;
+            color: #475569;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .tour-btn {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            padding: 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: opacity 0.3s;
+        }
+
+        .tour-btn:hover {
+            opacity: 0.9;
+        }
+
+        .tour-btn i {
+            font-size: 1.1rem;
+        }
+
+        /* Customized Tour Banner */
+        .custom-tour-section {
+            background: linear-gradient(rgba(0, 119, 182, 0.9), rgba(0, 180, 216, 0.9)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
+            border-radius: 30px;
+            padding: 60px 40px;
+            margin: 40px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            box-shadow: 0 20px 50px rgba(0, 119, 182, 0.3);
+        }
+
+        .custom-tour-content {
+            max-width: 700px;
+        }
+
+        .custom-tour-content h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .custom-tour-content p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 70px 5%;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 20px;
+            background: var(--light);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px auto;
+            box-shadow: 0 8px 20px rgba(0, 119, 182, 0.2);
+        }
+
+        .feature-box h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .feature-box p {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        /* Floating WhatsApp Icon */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #cbd5e1;
+            padding: 60px 5% 30px 5%;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .footer-col p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media(max-width: 992px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 20px 0;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .custom-tour-section {
+                padding: 40px 20px;
+                text-align: center;
+            }
+            .custom-tour-content {
+                margin: 0 auto;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
-  <header>
-    <h1>Vijay Holidays</h1>
-    <div class="subtitle">TOURS & TRAVELS</div>
-    <div class="contact">+91 83295 15248</div>
-    <p class="tagline">Your Trusted Travel Partner</p>
-  </header>
-
-  <div class="intro">
-    Discover The World With Vijay Holidays<br>
-    Explore breathtaking domestic landscapes and exotic international destinations with curated tour packages tailored for unforgettable memories.
-  </div>
-
-  <div class="btn-group">
-    <a href="#" class="btn">Explore Tours</a>
-    <a href="#" class="btn btn-secondary">Customize Package</a>
-  </div>
-
-  <section>
-    <h2>Trusted Agency</h2>
-    <p>Years of excellence in crafting memorable holiday experiences.</p>
-  </section>
-
-  <section>
-    <h2>Instant Support</h2>
-    <p>Connect with our travel experts directly at <span class="whatsapp">+91 83295 15248</span>.</p>
-  </section>
-
-  <section>
-    <h2>Customized Itineraries</h2>
-    <p>Tailor-made tour plans designed entirely around your preferences.</p>
-  </section>
-
-  <section>
-    <h2>Top-Rated Experiences</h2>
-    <p>Handpicked hotels, seamless transfers, and guided sightseeing.</p>
-  </section>
-
-  <section>
-    <h2>MAGICAL INDIA</h2>
-    <p>Popular Domestic Tour Packages</p>
-
-    <div class="package">
-      <h4>Manali Snow Wonderland</h4>
-      <p><strong>5 Days / 4 Nights</strong> | Himachal Pradesh</p>
-      <p>Experience Solang Valley snow adventures, Rohtang Pass views, Atal Tunnel, and cozy valley stays.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
+    <!-- Top Call / WhatsApp Bar -->
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <i class="fa-solid fa-earth-americas"></i> Your Trusted Travel Partner
+        </div>
+        <div class="top-bar-contact">
+            <a href="tel:+918329515248"><i class="fa-solid fa-phone-volume"></i> +91 83295 15248</a>
+        </div>
     </div>
 
-    <div class="package">
-      <h4>Shimla Colonial Charm</h4>
-      <p><strong>4 Days / 3 Nights</strong> | Himachal Pradesh</p>
-      <p>Stroll down the historic Mall Road, visit Christ Church, Kufri snow point, and enjoy panoramic pine vistas.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
-    </div>
+    <!-- Navigation Bar -->
+    <nav>
+        <a href="#" class="logo-container">
+            <!-- Exact Logo SVG with Sun, Palm Trees, Airplane, and "Vijay holidays" inside cloud -->
+            <svg class="logo-svg-wrapper" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Outer Ring -->
+                <circle cx="100" cy="100" r="94" fill="#ffffff" stroke="#00b4d8" stroke-width="8"/>
+                <!-- Background Red/Orange Sun -->
+                <circle cx="75" cy="95" r="42" fill="#ff5722"/>
+                <!-- Palm Trees -->
+                <g fill="#0284c7">
+                    <path d="M72,110 Q70,85 62,70 Q75,78 82,75 Q78,88 80,110 Z"/>
+                    <path d="M60,115 Q55,90 45,78 Q60,84 68,83 Q62,95 65,115 Z"/>
+                    <!-- Fronds -->
+                    <path d="M62,70 Q45,55 30,65 Q45,70 62,70 Z"/>
+                    <path d="M62,70 Q50,45 65,35 Q60,50 62,70 Z"/>
+                    <path d="M62,70 Q80,50 95,60 Q75,65 62,70 Z"/>
+                    <path d="M45,78 Q30,70 20,80 Q35,82 45,78 Z"/>
+                </g>
+                <!-- Airplane Flying Across -->
+                <path d="M15,115 L50,105 L110,102 L115,96 L120,102 L150,100 L155,105 L120,108 L115,114 L110,108 Z" fill="#1e3a8a"/>
+                <!-- Cloud Background for Text -->
+                <path d="M35,135 Q25,120 45,110 Q65,95 95,100 Q125,95 145,110 Q165,120 155,135 Q170,150 145,160 Q120,175 90,165 Q60,175 40,160 Q20,150 35,135 Z" fill="#38bdf8" opacity="0.92"/>
+                <!-- "Vijay holidays" Text Inside Cloud -->
+                <text x="96" y="132" font-family="'Poppins', sans-serif" font-weight="800" font-style="italic" font-size="24" fill="#ffffff" text-anchor="middle">Vijay</text>
+                <text x="98" y="157" font-family="'Poppins', sans-serif" font-weight="700" font-size="21" fill="#ffffff" text-anchor="middle">holidays</text>
+            </svg>
+            <div class="logo-text-group">
+                Vijay Holidays
+                <span>Tours & Travels</span>
+            </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#domestic">Domestic Tours</a></li>
+            <li><a href="#international">International Tours</a></li>
+            <li><a href="#customized">Customized Tour</a></li>
+            <li><a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20want%20to%20book%20a%20tour!" target="_blank" class="nav-cta"><i class="fa-brands fa-whatsapp"></i> Book Now</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobileMenu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
 
-    <div class="package">
-      <h4>Goa Sun, Sand & Sea</h4>
-      <p><strong>5 Days / 4 Nights</strong> | Coastal Goa</p>
-      <p>Relax on golden beaches, explore North & South Goa heritage churches, water sports, and vibrant nightlife.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
-    </div>
+    <!-- Hero Section -->
+    <header class="hero" id="home">
+        <h1>Discover The World With <span>Vijay Holidays</span></h1>
+        <p>Explore breathtaking domestic landscapes and exotic international destinations with curated tour packages tailored for unforgettable memories.</p>
+        <div class="hero-btns">
+            <a href="#domestic" class="btn btn-primary"><i class="fa-solid fa-mountain-sun"></i> Explore Tours</a>
+            <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20would%20like%20to%20plan%20a%20customized%20tour." target="_blank" class="btn btn-outline"><i class="fa-solid fa-sliders"></i> Customize Package</a>
+        </div>
+    </header>
 
-    <div class="package">
-      <h4>Ooty Queen of Hills</h4>
-      <p><strong>4 Days / 3 Nights</strong> | Tamil Nadu</p>
-      <p>Discover sprawling Nilgiri tea gardens, botanical gardens, Ooty Lake boating, and Coonoor viewpoints.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
-    </div>
+    <!-- Features Overview -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Trusted Agency</h3>
+                    <p>Years of excellence in crafting memorable holiday experiences.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-headset"></i></div>
+                    <h3>Instant Support</h3>
+                    <p>Connect with our travel experts directly at +91 83295 15248.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                    <h3>Customized Itineraries</h3>
+                    <p>Tailor-made tour plans designed entirely around your preferences.</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon"><i class="fa-solid fa-star"></i></div>
+                    <h3>Top-Rated Experiences</h3>
+                    <p>Handpicked hotels, seamless transfers, and guided sightseeing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="package">
-      <h4>Mysuru Royal Heritage</h4>
-      <p><strong>3 Days / 2 Nights</strong> | Karnataka</p>
-      <p>Witness the grandeur of Mysore Palace, Chamundi Hills, Brindavan Gardens fountain show, and local silk markets.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
-    </div>
+    <!-- Domestic Tours Section -->
+    <section id="domestic">
+        <div class="container">
+            <div class="section-header">
+                <span>Magical India</span>
+                <h2>Popular Domestic Tour Packages</h2>
+            </div>
+            <div class="tour-grid">
+                <!-- Manali -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?auto=format&fit=crop&w=800&q=80" alt="Manali Tour">
+                        <div class="tour-badge">Domestic</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Manali Snow Wonderland</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 5 Days / 4 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Himachal Pradesh</span>
+                        </div>
+                        <p class="tour-desc">Experience Solang Valley snow adventures, Rohtang Pass views, Atal Tunnel, and cozy valley stays.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Manali%20Snow%20Wonderland%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
 
-    <div class="package">
-      <h4>Kashmir Heaven on Earth</h4>
-      <p><strong>6 Days / 5 Nights</strong> | Jammu & Kashmir</p>
-      <p>Stay in a luxury Dal Lake houseboat, explore Gulmarg gondola rides, and Pahalgam valley meadows.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
-    </div>
+                <!-- Shimla -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1598091383021-15ddea10925d?auto=format&fit=crop&w=800&q=80" alt="Shimla Tour">
+                        <div class="tour-badge">Domestic</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Shimla Colonial Charm</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 4 Days / 3 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Himachal Pradesh</span>
+                        </div>
+                        <p class="tour-desc">Stroll down the historic Mall Road, visit Christ Church, Kufri snow point, and enjoy panoramic pine vistas.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Shimla%20Colonial%20Charm%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
 
-    <div class="package">
-      <h4>Kerala Backwater Serenity</h4>
-      <p><strong>6 Days / 5 Nights</strong> | Kerala</p>
-      <p>Munnar tea hills, Alleppey overnight houseboat cruise, and pristine beaches of Kovalam.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
-    </div>
+                <!-- Goa -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=800&q=80" alt="Goa Tour">
+                        <div class="tour-badge">Domestic</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Goa Sun, Sand & Sea</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 5 Days / 4 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Coastal Goa</span>
+                        </div>
+                        <p class="tour-desc">Relax on golden beaches, explore North & South Goa heritage churches, water sports, and vibrant nightlife.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Goa%20Sun,%20Sand%20%26%20Sea%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
 
-    <div class="package">
-      <h4>Rajasthan Royal Trails</h4>
-      <p><strong>7 Days / 6 Nights</strong> | Rajasthan</p>
-      <p>Explore majestic forts in Jaipur, romantic lakes of Udaipur, and golden sand dunes of Jaisalmer.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
-    </div>
-  </section>
+                <!-- Ooty -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?auto=format&fit=crop&w=800&q=80" alt="Ooty Tour">
+                        <div class="tour-badge">Domestic</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Ooty Queen of Hills</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 4 Days / 3 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Tamil Nadu</span>
+                        </div>
+                        <p class="tour-desc">Discover sprawling Nilgiri tea gardens, botanical gardens, Ooty Lake boating, and Coonoor viewpoints.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Ooty%20Queen%20of%20Hills%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
 
-  <section>
-    <h2>GLOBAL HORIZONS</h2>
-    <p>Exciting International Tour Packages</p>
+                <!-- Mysuru -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80" alt="Mysuru Tour">
+                        <div class="tour-badge">Domestic</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Mysuru Royal Heritage</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 3 Days / 2 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Karnataka</span>
+                        </div>
+                        <p class="tour-desc">Witness the grandeur of Mysore Palace, Chamundi Hills, Brindavan Gardens fountain show, and local silk markets.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Mysuru%20Royal%20Heritage%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
 
-    <div class="package">
-      <h4>Dubai Modern Luxury & Safari</h4>
-      <p><strong>5 Days / 4 Nights</strong> | UAE</p>
-      <p>Burj Khalifa observation deck, Desert Safari with BBQ dinner, Dubai Marina cruise, and futuristic city sights.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
-    </div>
+                <!-- Kashmir -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1595815771614-ade9d652a65d?auto=format&fit=crop&w=800&q=80" alt="Kashmir Tour">
+                        <div class="tour-badge">Domestic</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Kashmir Heaven on Earth</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 6 Days / 5 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Jammu & Kashmir</span>
+                        </div>
+                        <p class="tour-desc">Stay in a luxury Dal Lake houseboat, explore Gulmarg gondola rides, and Pahalgam valley meadows.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Kashmir%20Heaven%20on%20Earth%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
 
-    <div class="package">
-      <h4>Thailand Bangkok & Pattaya</h4>
-      <p><strong>6 Days / 5 Nights</strong> | Thailand</p>
-      <p>Experience bustling Bangkok temples, vibrant nightlife, Coral Island speedboat tour in Pattaya, and shopping.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
-    </div>
+                <!-- Kerala -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80" alt="Kerala Tour">
+                        <div class="tour-badge">Domestic</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Kerala Backwater Serenity</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 6 Days / 5 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Kerala</span>
+                        </div>
+                        <p class="tour-desc">Munnar tea hills, Alleppey overnight houseboat cruise, and pristine beaches of Kovalam.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Kerala%20Backwater%20Serenity%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
 
-    <div class="package">
-      <h4>Krabi Tropical Paradise</h4>
-      <p><strong>4 Days / 3 Nights</strong> | Thailand</p>
-      <p>4-Island longtail boat tour, limestone cliffs, crystal clear waters, and relaxing Emerald Pool excursions.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
-    </div>
+                <!-- Rajasthan -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=800&q=80" alt="Rajasthan Tour">
+                        <div class="tour-badge">Domestic</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Rajasthan Royal Trails</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 7 Days / 6 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Rajasthan</span>
+                        </div>
+                        <p class="tour-desc">Explore majestic forts in Jaipur, romantic lakes of Udaipur, and golden sand dunes of Jaisalmer.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Rajasthan%20Royal%20Trails%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="package">
-      <h4>Phuket Island Getaway</h4>
-      <p><strong>5 Days / 4 Nights</strong> | Thailand</p>
-      <p>Phi Phi Island tour, Patong beach excitement, Big Buddha viewpoint, and spectacular cultural shows.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
-    </div>
+    <!-- International Tours Section -->
+    <section id="international" style="background: #edf2f7;">
+        <div class="container">
+            <div class="section-header">
+                <span>Global Horizons</span>
+                <h2>Exciting International Tour Packages</h2>
+            </div>
+            <div class="tour-grid">
+                <!-- Dubai -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Dubai Tour">
+                        <div class="tour-badge" style="background: var(--accent);">International</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Dubai Modern Luxury & Safari</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 5 Days / 4 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> UAE</span>
+                        </div>
+                        <p class="tour-desc">Burj Khalifa observation deck, Desert Safari with BBQ dinner, Dubai Marina cruise, and futuristic city sights.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Dubai%20Modern%20Luxury%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
 
-    <div class="package">
-      <h4>Singapore & Malaysia Explorer</h4>
-      <p><strong>7 Days / 6 Nights</strong> | Southeast Asia</p>
-      <p>Sentosa Island, Universal Studios, Marina Bay Sands, Kuala Lumpur Petronas Towers, and Genting Highlands.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
-    </div>
+                <!-- Thailand -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=800&q=80" alt="Thailand Tour">
+                        <div class="tour-badge" style="background: var(--accent);">International</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Thailand Bangkok & Pattaya</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 6 Days / 5 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Thailand</span>
+                        </div>
+                        <p class="tour-desc">Experience bustling Bangkok temples, vibrant nightlife, Coral Island speedboat tour in Pattaya, and shopping.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Thailand%20Bangkok%20%26%20Pattaya%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
 
-    <div class="package">
-      <h4>Bali Romantic Tropical Escape</h4>
-      <p><strong>6 Days / 5 Nights</strong> | Indonesia</p>
-      <p>Ubud rice terraces, Uluwatu temple sunset dance, Nusa Penida island tour, and luxury villa stay.</p>
-      <p><a href="https://wa.me/918329515248" class="whatsapp">Book via WhatsApp</a></p>
-    </div>
-  </section>
+                <!-- Krabi -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" alt="Krabi Tour">
+                        <div class="tour-badge" style="background: var(--accent);">International</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Krabi Tropical Paradise</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 4 Days / 3 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Thailand</span>
+                        </div>
+                        <p class="tour-desc">4-Island longtail boat tour, limestone cliffs, crystal clear waters, and relaxing Emerald Pool excursions.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Krabi%20Tropical%20Paradise%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
 
-  <section>
-    <h2>Tailor-Made Experience</h2>
-    <p>Want a Customized Tour Plan?</p>
-    <p>Have a specific destination or unique itinerary in mind? Tell us your dates, preferences, and dream destinations, and our experts will craft a personalized package exclusively for you!</p>
-    <a href="https://wa.me/918329515248" class="btn">Customize Now</a>
-  </section>
+                <!-- Phuket -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5?auto=format&fit=crop&w=800&q=80" alt="Phuket Tour">
+                        <div class="tour-badge" style="background: var(--accent);">International</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Phuket Island Getaway</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 5 Days / 4 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Thailand</span>
+                        </div>
+                        <p class="tour-desc">Phi Phi Island tour, Patong beach excitement, Big Buddha viewpoint, and spectacular cultural shows.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Phuket%20Island%20Getaway%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
 
-  <footer>
-    <h3>Vijay Holidays</h3>
-    <p>TOURS & TRAVELS</p>
-    <p>Your ultimate travel companion for extraordinary domestic and international holidays. Crafted with care, booked instantly via WhatsApp.</p>
-    
-    <h4>Quick Links</h4>
-    <ul>
-      <li>Home</li>
-      <li>Domestic Tours</li>
-      <li>International Tours</li>
-      <li>Customized Tour</li>
-    </ul>
+                <!-- Singapore & Malaysia -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80" alt="Singapore Malaysia Tour">
+                        <div class="tour-badge" style="background: var(--accent);">International</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Singapore & Malaysia Explorer</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 7 Days / 6 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Southeast Asia</span>
+                        </div>
+                        <p class="tour-desc">Sentosa Island, Universal Studios, Marina Bay Sands, Kuala Lumpur Petronas Towers, and Genting Highlands.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Singapore%20%26%20Malaysia%20Explorer%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
 
-    <h4>Domestic Destinations</h4>
-    <ul>
-      <li>Manali & Shimla</li>
-      <li>Goa Beaches</li>
-      <li>Ooty & Mysuru</li>
-      <li>Kashmir & Kerala</li>
-    </ul>
+                <!-- Bali -->
+                <div class="tour-card">
+                    <div class="tour-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" alt="Bali Tour">
+                        <div class="tour-badge" style="background: var(--accent);">International</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3>Bali Romantic Tropical Escape</h3>
+                        <div class="tour-meta">
+                            <span><i class="fa-solid fa-clock"></i> 6 Days / 5 Nights</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Indonesia</span>
+                        </div>
+                        <p class="tour-desc">Ubud rice terraces, Uluwatu temple sunset dance, Nusa Penida island tour, and luxury villa stay.</p>
+                        <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20am%20interested%20in%20the%20Bali%20Romantic%20Tropical%20Escape%20package." target="_blank" class="tour-btn"><i class="fa-brands fa-whatsapp"></i> Book via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h4>Contact Us</h4>
-    <p><strong>+91 83295 15248</strong></p>
-    <p><a href="https://wa.me/918329515248" class="whatsapp">Chat on WhatsApp</a></p>
-    
-    <p>&copy; 2026 Vijay Holidays Tours & Travels. All Rights Reserved. Instant Booking via WhatsApp.</p>
-  </footer>
-</div>
+    <!-- Customized Tour Section -->
+    <section id="customized">
+        <div class="container">
+            <div class="custom-tour-section">
+                <div class="custom-tour-content">
+                    <span>Tailor-Made Experience</span>
+                    <h2>Want a Customized Tour Plan?</h2>
+                    <p>Have a specific destination or unique itinerary in mind? Tell us your dates, preferences, and dream destinations, and our experts will craft a personalized package exclusively for you!</p>
+                </div>
+                <div>
+                    <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20want%20to%20customize%20my%20own%20tour%20itinerary." target="_blank" class="btn btn-primary" style="background: white; color: var(--dark); box-shadow: 0 10px 30px rgba(0,0,0,0.2);"><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent);"></i> Customize Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918329515248?text=Hi%20Vijay%20Holidays,%20I%20have%20an%20inquiry%20about%20your%20tour%20packages." target="_blank" class="whatsapp-float" aria-label="WhatsApp Chat">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-container" style="margin-bottom: 15px;">
+                        <!-- Mini SVG Logo for Footer -->
+                        <svg width="45" height="45" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="100" cy="100" r="94" fill="#ffffff" stroke="#00b4d8" stroke-width="8"/>
+                            <circle cx="75" cy="95" r="42" fill="#ff5722"/>
+                            <g fill="#0284c7">
+                                <path d="M72,110 Q70,85 62,70 Q75,78 82,75 Q78,88 80,110 Z"/>
+                                <path d="M60,115 Q55,90 45,78 Q60,84 68,83 Q62,95 65,115 Z"/>
+                                <path d="M62,70 Q45,55 30,65 Q45,70 62,70 Z"/>
+                                <path d="M62,70 Q50,45 65,35 Q60,50 62,70 Z"/>
+                                <path d="M62,70 Q80,50 95,60 Q75,65 62,70 Z"/>
+                                <path d="M45,78 Q30,70 20,80 Q35,82 45,78 Z"/>
+                            </g>
+                            <path d="M15,115 L50,105 L110,102 L115,96 L120,102 L150,100 L155,105 L120,108 L115,114 L110,108 Z" fill="#1e3a8a"/>
+                            <path d="M35,135 Q25,120 45,110 Q65,95 95,100 Q125,95 145,110 Q165,120 155,135 Q170,150 145,160 Q120,175 90,165 Q60,175 40,160 Q20,150 35,135 Z" fill="#38bdf8" opacity="0.92"/>
+                            <text x="96" y="132" font-family="'Poppins', sans-serif" font-weight="800" font-style="italic" font-size="24" fill="#ffffff" text-anchor="middle">Vijay</text>
+                            <text x="98" y="157" font-family="'Poppins', sans-serif" font-weight="700" font-size="21" fill="#ffffff" text-anchor="middle">holidays</text>
+                        </svg>
+                        <div class="logo-text-group" style="font-size: 1.1rem; color: white;">Vijay Holidays<span style="-webkit-text-fill-color: var(--accent);">Tours & Travels</span></div>
+                    </div>
+                    <p>Your ultimate travel companion for extraordinary domestic and international holidays. Crafted with care, booked instantly via WhatsApp.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#domestic">Domestic Tours</a></li>
+                        <li><a href="#international">International Tours</a></li>
+                        <li><a href="#customized">Customized Tour</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Domestic Destinations</h4>
+                    <ul>
+                        <li><a href="#domestic">Manali & Shimla</a></li>
+                        <li><a href="#domestic">Goa Beaches</a></li>
+                        <li><a href="#domestic">Ooty & Mysuru</a></li>
+                        <li><a href="#domestic">Kashmir & Kerala</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <p><i class="fa-solid fa-phone" style="color: var(--secondary);"></i> <a href="tel:+918329515248" style="color: #cbd5e1; text-decoration: none;">+91 83295 15248</a></p>
+                    <p><i class="fa-brands fa-whatsapp" style="color: #25d366;"></i> <a href="https://wa.me/918329515248" target="_blank" style="color: #cbd5e1; text-decoration: none;">Chat on WhatsApp</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Vijay Holidays Tours & Travels. All Rights Reserved. Instant Booking via WhatsApp.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenu = document.getElementById('mobileMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu on link click for mobile
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
